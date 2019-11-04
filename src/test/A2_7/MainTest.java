@@ -90,4 +90,16 @@ public class MainTest {
         LineReader lines = new LineReader(reader);
         assertEquals("dkqw2", lines.iterator().next());
     }
+
+    @Test
+    public void testHsNextNext() throws Exception {
+        Reader reader = new StringReader("Dies\nist\nein\nTest");
+        LineReader lines = new LineReader(reader);
+        assertTrue(lines.iterator().hasNext());
+        assertEquals("Dies", lines.iterator().next());
+        assertTrue(lines.iterator().hasNext());
+        assertTrue(lines.iterator().hasNext());
+        assertEquals("ist", lines.iterator().next());
+        assertEquals("ein", lines.iterator().next());
+    }
 } 
